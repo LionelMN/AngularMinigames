@@ -1,0 +1,129 @@
+.gameContainer{
+  background-color: #333;
+  .counter{
+    font-size: 1.5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    div{
+      color: white;
+      padding: .1rem .5rem;
+      .win {
+        color: green;
+      }
+      .lose{
+        color: red;
+      }
+      .draw{
+        color: goldenrod;
+      }
+    }
+  }
+  .selectionContainer{
+    display: grid;
+    place-items: center;
+    gap: 5rem;
+    padding: 3rem 0 2rem;
+  }
+
+  .selectButton{
+    height: 100px;
+    width: 100px;
+    padding: 1rem;
+    border: 10px solid black;
+    border-radius: 100%;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+    &:hover{
+      animation: rotate infinite linear 3s;
+    }
+    img {
+      display: block;
+      width: 100%;
+      margin: auto;
+    }
+  }
+  .rock{
+    background: red;
+    grid-column: 1 / 3;
+  }
+  .paper{
+    background: goldenrod;
+  }
+  .scissors{
+    background: silver;
+  }
+
+  .gameInfo{
+    position: relative;
+    font-size: 4rem;
+    text-align: center;
+    background: #ccc;
+    padding: 0 0.5rem;
+    z-index: 0;
+    overflow: hidden;
+    &::after{
+      position: absolute;
+      content: "";
+      top: 0px;
+      bottom: 0px;
+      right: -65px;
+      width: 55.2%;
+      background: #999;
+      z-index: -1;
+      transform: skew(350deg);
+      border-left: 5px solid black;
+    }
+    p{
+      color: #fff;
+      margin: 0;
+    }
+    .result {
+      text-transform: uppercase;
+      font-size: 6rem;
+      font-weight: 600;
+      letter-spacing: 0.5rem;
+      font-family: 'Nunito Sans', serif;
+    }
+    .win {
+      color: green;
+    }
+    .lose{
+      color: red;
+    }
+    .draw{
+      color: goldenrod;
+    }
+    .match{
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 1rem;
+    }
+    .selectButton{
+      height: 30rem;
+      width: 30rem;
+      cursor: default;
+      &:hover{
+        animation: none;
+      }
+    }
+  }
+  .playAgain{
+    text-align: center;
+    font-size: 4rem;
+  }
+  @keyframes rotate {
+    50%{
+      transform: rotate(180deg) scale(1.5);
+      box-shadow: 0 0 10px 1px #ccc,
+                  0 0 15px 1px #ccc,
+                  0 0 20px 1px #ccc,
+                  0 0 25px 1px #ccc;
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+}
