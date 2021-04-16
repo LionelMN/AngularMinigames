@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "minigames"
+    }
+  },
+  "defaultProject": "minigames",
+  "cli": {
+    "analytics": false
+  }
 }

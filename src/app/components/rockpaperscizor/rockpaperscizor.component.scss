@@ -1,5 +1,5 @@
 .gameContainer{
-  background-color: #333;
+  background-color: var(--primaryColor);
   .counter{
     font-size: 1.5rem;
     padding: 1rem;
@@ -10,13 +10,13 @@
       color: white;
       padding: .1rem .5rem;
       .win {
-        color: green;
+        color: #00ff00;
       }
       .lose{
-        color: red;
+        color: #ff0000;
       }
       .draw{
-        color: goldenrod;
+        color: #daa520;
       }
     }
   }
@@ -60,7 +60,7 @@
     position: relative;
     font-size: 4rem;
     text-align: center;
-    background: #ccc;
+    background: var(--terciaryColor);
     padding: 0 0.5rem;
     z-index: 0;
     overflow: hidden;
@@ -71,7 +71,7 @@
       bottom: 0px;
       right: -65px;
       width: 55.2%;
-      background: #999;
+      background: var(--secondaryColor);
       z-index: -1;
       transform: skew(350deg);
       border-left: 5px solid black;
@@ -88,13 +88,13 @@
       font-family: 'Nunito Sans', serif;
     }
     .win {
-      color: green;
+      color: #00ff00;
     }
     .lose{
-      color: red;
+      color: #ff0000;
     }
     .draw{
-      color: goldenrod;
+      color: #daa520;
     }
     .match{
       display: flex;
