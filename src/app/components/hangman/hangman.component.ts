@@ -15,7 +15,7 @@ export class HangmanComponent implements OnInit {
   public keyboard : {letter : string, isPressed : boolean}[] = [
     {letter: 'q', isPressed : false}, {letter: 'w', isPressed : false}, {letter: 'e', isPressed : false}, {letter: 'r', isPressed : false}, {letter: 't', isPressed : false}, {letter: 'y', isPressed : false}, {letter: 'u', isPressed : false}, {letter: 'i', isPressed : false}, {letter: 'o', isPressed : false}, {letter: 'p', isPressed : false}, {letter: 'a', isPressed : false}, {letter: 's', isPressed : false}, {letter: 'd', isPressed : false}, {letter: 'f', isPressed : false}, {letter: 'g', isPressed : false}, {letter: 'h', isPressed : false}, {letter: 'j', isPressed : false}, {letter: 'k', isPressed : false}, {letter: 'l', isPressed : false}, {letter: 'z', isPressed : false}, {letter: 'x', isPressed : false}, {letter: 'c', isPressed : false}, {letter: 'v', isPressed : false}, {letter: 'b', isPressed : false}, {letter: 'n', isPressed : false}, {letter: 'm', isPressed : false},
   ];
-  public lifes : number;
+  public lifes : number = 10;
   private aciertos : number = 0;
   public result : string;
 
