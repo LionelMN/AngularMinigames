@@ -15,7 +15,9 @@ export class HangmanComponent implements OnInit {
   public keyboard : {letter : string, isPressed : boolean}[] = [
     {letter: 'q', isPressed : false}, {letter: 'w', isPressed : false}, {letter: 'e', isPressed : false}, {letter: 'r', isPressed : false}, {letter: 't', isPressed : false}, {letter: 'y', isPressed : false}, {letter: 'u', isPressed : false}, {letter: 'i', isPressed : false}, {letter: 'o', isPressed : false}, {letter: 'p', isPressed : false}, {letter: 'a', isPressed : false}, {letter: 's', isPressed : false}, {letter: 'd', isPressed : false}, {letter: 'f', isPressed : false}, {letter: 'g', isPressed : false}, {letter: 'h', isPressed : false}, {letter: 'j', isPressed : false}, {letter: 'k', isPressed : false}, {letter: 'l', isPressed : false}, {letter: 'z', isPressed : false}, {letter: 'x', isPressed : false}, {letter: 'c', isPressed : false}, {letter: 'v', isPressed : false}, {letter: 'b', isPressed : false}, {letter: 'n', isPressed : false}, {letter: 'm', isPressed : false},
   ];
-  public lifes : number = 10;
+  public lifes : number;
+  private aciertos : number = 0;
+  public result : string;
 
   ngOnInit(): void {
     this.prepareGame();
@@ -43,20 +45,35 @@ export class HangmanComponent implements OnInit {
         this.wordSeparated.map(letter => {
           if(letter.letter === key.letter){
             this.reveal(letter)
+            this.aciertos ++;
           }
         })
+        if (this.aciertos === this.guessWord.length){
+          this.gameOver('win')
+        }
       } else{
         this.lifes --;
         if (this.lifes === 0){
-          this.gameOver()
+          this.gameOver('lose')
         }
       }
       key.isPressed = true;
     }
   }
 
-  gameOver() :void{
+  gameOver(result) :void{
     this.keyboard.map( key => key.isPressed = true);
+    this.result = result
+  }
+
+  newGame(){
+    this.aciertos = 0;
+    this.result = "";
+    this.lifes = 10;
+    this.keyboard.map( key => key.isPressed = false);
+    this.guessWord = "";
+    this.wordSeparated = []
+    this.prepareGame();
   }
 
 }

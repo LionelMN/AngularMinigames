@@ -9,7 +9,6 @@
       text-align: center;
       text-transform: uppercase;
       margin: .5rem;
-      padding-bottom: 2rem;
       height: 13rem;
       width: 10%;
     }
@@ -35,8 +34,8 @@
       position: relative;
       margin: .2rem .1rem;
       width: 10rem;
-      border: 1px solid black;
       transition: 1s;
+      cursor: pointer;
       &::after{
         position: absolute;
         content: '';
@@ -50,6 +49,11 @@
     }
     .unPressed{
       background: var(--terciaryColor);
+      &:hover{
+        transform: scale(1.1);
+        box-shadow: 0 0 10px 1px var(--fithColor),0 0 15px 1px var(--fithColor);
+        z-index: 100;
+      }
       &::after{
         background: var(--secondaryColor);
       }
@@ -60,6 +64,28 @@
       &::after{
         background: var(--forthColor);
       }
+    }
+  }
+  .lifeCounter{
+    text-align: end;
+    font-size: 2rem;
+    margin: .2rem 1rem .1rem;
+  }
+
+  .result{
+    position: absolute;
+    top: 30%;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+    z-index: 10;
+    background: var(--primaryColor);
+    border: 5px solid var(--fithColor);
+    .win{
+      color: lawngreen;
+    }
+    .lose{
+      color: crimson;
     }
   }
 }
