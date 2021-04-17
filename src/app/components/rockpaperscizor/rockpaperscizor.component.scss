@@ -1,5 +1,4 @@
 .gameContainer{
-  background-color: var(--primaryColor);
   .counter{
     font-size: 1.5rem;
     padding: 1rem;
@@ -102,8 +101,8 @@
       padding-bottom: 1rem;
     }
     .selectButton{
-      height: 30rem;
-      width: 30rem;
+      height: 29rem;
+      width: 29rem;
       cursor: default;
       &:hover{
         animation: none;
@@ -111,9 +110,19 @@
     }
   }
   .playAgain{
+    margin: 0.3rem auto;
     text-align: center;
     font-size: 4rem;
+    cursor: pointer;
+    border: 3px solid black;
+    border-radius: 50px;
+    width: 22%;
+    background: var(--terciaryColor);
+    &:hover{
+      background: var(--secondaryColor);
+    }
   }
+
   @keyframes rotate {
     50%{
       transform: rotate(180deg) scale(1.5);

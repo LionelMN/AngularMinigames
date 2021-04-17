@@ -1,0 +1,65 @@
+.gameContainer{
+  color: white;
+  font-size: 12rem;
+  .phraseContainer{
+    font-family: 'Nunito sans' !important;
+    display: flex;
+    justify-content: space-evenly;
+    .cell{
+      text-align: center;
+      text-transform: uppercase;
+      margin: .5rem;
+      padding-bottom: 2rem;
+      height: 13rem;
+      width: 10%;
+    }
+    .unrevealed{
+      background: var(--terciaryColor);
+      color: transparent;
+      cursor: default;
+      user-select: none;
+    }
+    .revealed{
+      border-bottom: 1rem solid black;
+    }
+  }
+  .keyboard{
+    font-family: 'Halant';
+    font-size: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .key{
+      text-transform: uppercase;
+      text-align: center;
+      position: relative;
+      margin: .2rem .1rem;
+      width: 10rem;
+      border: 1px solid black;
+      transition: 1s;
+      &::after{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 95%, 5% 95%, 5% 100%, 100% 100%, 100% 0%);
+        transition: 1s;
+      }
+    }
+    .unPressed{
+      background: var(--terciaryColor);
+      &::after{
+        background: var(--secondaryColor);
+      }
+    }
+    .pressed{
+      background: var(--primaryColor);
+      color: grey;
+      &::after{
+        background: var(--forthColor);
+      }
+    }
+  }
+}
