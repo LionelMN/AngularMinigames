@@ -1,0 +1,19 @@
+<div class="gameContainer">
+  <div class="lifeCounter">
+    Lifes: {{lifes}}
+  </div>
+  <div class="phraseContainer">
+    <div *ngFor="let letter of wordSeparated" class="cell" [ngClass]="{'unrevealed' : !letter.isRevealed, 'revealed' : letter.isRevealed}">
+      <span *ngIf="letter.isRevealed">{{letter.letter}}</span>
+    </div>
+  </div>
+  <div class="keyboard">
+    <div class="key" *ngFor="let key of keyboard" [ngClass]="{'unPressed' : !key.isPressed, 'pressed' : key.isPressed}" (click)="pressKey(key)">
+      {{key.letter}}
+    </div>
+  </div>
+  <div class="result" *ngIf="result">
+    <span [class]="result">You {{result}}</span>
+    <span (click)="newGame()">New game</span>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+.gameContainer{
+  color: white;
+  font-size: 12rem;
+  .phraseContainer{
+    font-family: 'Nunito sans' !important;
+    display: flex;
+    justify-content: space-evenly;
+    .cell{
+      text-align: center;
+      text-transform: uppercase;
+      margin: .5rem;
+      height: 13rem;
+      width: 10%;
+    }
+    .unrevealed{
+      background: var(--terciaryColor);
+      color: transparent;
+      cursor: default;
+      user-select: none;
+    }
+    .revealed{
+      border-bottom: 1rem solid black;
+    }
+  }
+  .keyboard{
+    font-family: 'Halant';
+    font-size: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .key{
+      text-transform: uppercase;
+      text-align: center;
+      position: relative;
+      margin: .2rem .1rem;
+      width: 10rem;
+      transition: 1s;
+      cursor: pointer;
+      &::after{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 95%, 5% 95%, 5% 100%, 100% 100%, 100% 0%);
+        transition: 1s;
+      }
+    }
+    .unPressed{
+      background: var(--terciaryColor);
+      &:hover{
+        transform: scale(1.1);
+        box-shadow: 0 0 10px 1px var(--fithColor),0 0 15px 1px var(--fithColor);
+        z-index: 100;
+      }
+      &::after{
+        background: var(--secondaryColor);
+      }
+    }
+    .pressed{
+      background: var(--primaryColor);
+      color: grey;
+      &::after{
+        background: var(--forthColor);
+      }
+    }
+  }
+  .lifeCounter{
+    text-align: end;
+    font-size: 2rem;
+    margin: .2rem 1rem .1rem;
+  }
+
+  .result{
+    position: absolute;
+    top: 30%;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+    z-index: 10;
+    background: var(--primaryColor);
+    border: 5px solid var(--fithColor);
+    .win{
+      color: lawngreen;
+    }
+    .lose{
+      color: crimson;
+    }
+  }
+}

@@ -6,9 +6,9 @@
   </div>
   <div *ngIf="gameInfo" [@inOutAnimation]>
     <div class="gameInfo"  [innerHTML]="gameInfo"></div>
-    <div class="playAgain">PLAY AGAIN</div>
+    <div class="playAgain" (click)="newGame()">PLAY AGAIN</div>
   </div>
-  <div class="selectionContainer">
+  <div class="selectionContainer" *ngIf="!gameInfo" [@inOutAnimation]>
     <div (click)="select(0)" class="selectButton rock"><img src="assets/rockpaperscissors/0.png" alt="rock"></div>
     <div (click)="select(1)" class="selectButton paper"><img src="assets/rockpaperscissors/1.png" alt="paper"></div>
     <div (click)="select(2)" class="selectButton scissors"><img src="assets/rockpaperscissors/2.png" alt="scissors"></div>
