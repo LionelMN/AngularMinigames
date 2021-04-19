@@ -1,0 +1,37 @@
+.navbar{
+  position: absolute;
+  color: white;
+  background: black;
+  top: 0;
+  width: 4rem;
+  height: 7vh;
+  padding: 0 0.5rem;
+  transition: 1s;
+  div{
+    text-align: center;
+    margin: 1rem 0;
+  }
+  li{
+    margin: 1rem 0;
+    a{
+      color: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: .5s ease-out;
+    }
+  }
+  &:hover{
+    background: black;
+    width: 10rem;
+    height: 100vh;
+    z-index: 100;
+    li{
+      a{
+        color: white;
+        &:hover{
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
