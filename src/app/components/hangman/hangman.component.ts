@@ -9,7 +9,7 @@ export class HangmanComponent implements OnInit {
 
   constructor() { }
 
-  private GuessCollection : string[] = ["hola", "adios", "lorem", "qwertyuiop"];
+  private guessCollection : string[] = ["pikachu", "angular", "hangman", "react"];
   public guessWord : string;
   public wordSeparated : {letter : string, isRevealed : boolean}[] = [];
   public keyboard : {letter : string, isPressed : boolean}[] = [
@@ -24,7 +24,7 @@ export class HangmanComponent implements OnInit {
   }
 
   selectWord() :void {
-    this.guessWord = this.GuessCollection[Math.floor(Math.random() * (this.GuessCollection.length - 0) ) + 0];
+    this.guessWord = this.guessCollection[Math.floor(Math.random() * (this.guessCollection.length - 0) ) + 0];
   }
 
   prepareGame() : void {
