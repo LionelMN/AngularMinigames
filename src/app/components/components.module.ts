@@ -5,19 +5,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RockpaperscizorComponent } from './rockpaperscizor/rockpaperscizor.component';
 import { HangmanComponent } from './hangman/hangman.component';
 import { TictactoeComponent } from './tictactoe/tictactoe.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [RockpaperscizorComponent, HangmanComponent, TictactoeComponent],
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule
-  ],
-  exports : [
+  declarations: [
     RockpaperscizorComponent,
     HangmanComponent,
-    TictactoeComponent
+    TictactoeComponent,
+    NavbarComponent
+  ],
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  exports : [
+    NavbarComponent,
+    RockpaperscizorComponent,
+    HangmanComponent,
+    TictactoeComponent,
   ]
 })
 export class ComponentsModule { }
