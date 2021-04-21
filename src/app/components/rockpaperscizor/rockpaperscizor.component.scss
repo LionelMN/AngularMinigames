@@ -101,8 +101,8 @@
       padding-bottom: 1rem;
     }
     .selectButton{
-      height: 29rem;
-      width: 29rem;
+      height: 22rem;
+      width: 22rem;
       cursor: default;
       &:hover{
         animation: none;
@@ -110,13 +110,13 @@
     }
   }
   .playAgain{
-    margin: 0.3rem auto;
+    margin: 0.25rem auto 0;
     text-align: center;
     font-size: 4rem;
     cursor: pointer;
     border: 3px solid black;
     border-radius: 50px;
-    width: 22%;
+    width: 26rem;
     background: var(--terciaryColor);
     &:hover{
       background: var(--secondaryColor);
@@ -133,6 +133,49 @@
     }
     100%{
       transform: rotate(360deg);
+    }
+  }
+
+  @media only screen and (max-width: 769px) {
+    .gameInfo{
+      font-size: 3rem;
+      .selectButton{
+        width: 15rem;
+        height: 15rem;
+      }
+      &::after{
+        right: -50px;
+      }
+    }
+    .playAgain{
+      font-size: 3rem;
+      width: auto;
+      margin: 5rem 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .counter{
+      display: block;
+      text-align: center;
+    }
+    .selectionContainer{
+      gap: 5rem 2rem
+    }
+    .gameInfo{
+      font-size: 2rem;
+      .selectButton{
+        width: 6rem;
+        height: 6rem;
+      }
+      &::after{
+        right: -35px;
+      }
+    }
+    .playAgain{
+      font-size: 3rem;
+      width: auto;
+      margin: 5rem 1rem;
     }
   }
 }

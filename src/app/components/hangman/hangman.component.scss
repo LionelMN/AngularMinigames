@@ -91,4 +91,50 @@
       cursor: pointer;
     }
   }
+
+  @media only screen and (max-width: 769px) {
+    .phraseContainer{
+      font-size: 7rem;
+      .cell{
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+    .keyboard{
+      font-size: 2rem;
+      .key{
+        width: 7rem;
+      }
+    }
+    .result{
+      top: 35%;
+      left: 30px;
+      right: 30px;
+      font-size: 7rem;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .phraseContainer{
+      font-size: 3rem;
+      .cell{
+        height: 4rem;
+      }
+      .revealed{
+        border-bottom: .5rem solid black;
+      }
+    }
+    .keyboard{
+      font-size: 2rem;
+      .key{
+        width: 3rem;
+      }
+    }
+    .result{
+      top: 35%;
+      left: 30px;
+      right: 30px;
+      font-size: 4rem;
+    }
+  }
 }
