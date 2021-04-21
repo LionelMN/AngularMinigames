@@ -4,12 +4,33 @@
   background: black;
   top: 0;
   width: 4rem;
-  height: 7vh;
+  height: 4rem;
   padding: 0 0.5rem;
   transition: 1s;
   div{
-    text-align: center;
-    margin: 1rem 0;
+    .hamburger{
+      position: relative;
+      background: white;
+      width: 50px;
+      height: 5px;
+      margin: 1.5rem auto;
+      transition: 1s;
+      &::after, &::before{
+        position: absolute;
+        content: '';
+        background: white;
+        width: 50px;
+        height: 5px;
+        left: 0;
+        transition: 1s;
+      }
+      &::before{
+        top: 10px;
+      }
+      &::after{
+        bottom: 10px;
+      }
+    }
   }
   li{
     margin: 1rem 0;
@@ -25,6 +46,19 @@
     width: 10rem;
     height: 100vh;
     z-index: 100;
+    div{
+      .hamburger{
+        background: transparent;
+        &::before{
+          transform: rotate(-45deg);
+          top: 0;
+        }
+        &::after{
+          transform: rotate(45deg);
+          bottom: 0;
+        }
+      }
+    }
     li{
       a{
         color: white;
@@ -34,4 +68,19 @@
       }
     }
   }
+
+  @media only screen and (max-width: 768px){
+    height: 5vh;
+    ul {
+      display: none;
+    }
+    &:hover ul{
+      display: block;
+    }
+  }
+
+  @media only screen and (max-width: 768px){
+    height: 6vh;
+  }
+
 }
