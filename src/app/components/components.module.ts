@@ -8,6 +8,7 @@ import { TictactoeComponent } from './tictactoe/tictactoe.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ParchisComponent } from './parchis/parchis.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     RockpaperscizorComponent,
     HangmanComponent,
     TictactoeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ParchisComponent
   ],
   imports: [
     CommonModule,

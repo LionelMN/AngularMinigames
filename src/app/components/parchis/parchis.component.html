@@ -1,0 +1,74 @@
+<p>parchis works!</p>
+
+<div style="color: white; margin: 100px;">
+  <form
+    *ngIf="!isGameStarted"
+    #numberOfPlayers="ngForm"
+    (ngSubmit)="startGame(numberOfPlayers.form.value)"
+  >
+    <label for="numPlayers">Número de jugadores</label>
+    <input
+      type="number"
+      name="numPlayers"
+      min= "2"  max="4"
+      placeholder="1"
+      ngModel
+      [value]="numberOfPlayers"
+    >
+    <div *ngFor="let i of [].constructor(numberOfPlayers.form.value['numPlayers']); let index = index">
+      <label for="player{{index+1}}">Elige el color del jugador {{index + 1}}</label>
+      <select name="player{{index+1}}" ngModel value=player{{index+1}}Color>
+        <option value="yellow">Amarillo</option>
+        <option value="blue">Azul</option>
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+      </select>
+    </div>
+    <button type="submit">
+        Empezar juego
+    </button>
+  </form>
+  <div *ngIf="isGameStarted">
+    <h3>Es el turno del jugador {{activePlayer.numberPlayer}}, color {{activePlayer.team}}</h3>
+    <button (click)="simulateThrow()">Tirar Dado</button>
+    {{dice.getFace()}}
+    <div *ngIf="isSelectionChip">
+      <div *ngFor="let chip of activePlayer.chips; let index = index">
+        <span
+          *ngIf="!chip.isInHome && !chip.isInGoal"
+          (click)="avance(index, dice.getFace())"
+        >
+            Ficha {{index + 1}}: Está a {{68 - chip.position}} casillas
+        </span>
+        <span *ngIf="chip.isInHome">
+            Ficha {{index + 1}}: Está a en casa
+            <button
+              *ngIf="dice.getFace() == 2"
+              (click)="goOutHome(index)"
+            >
+                Sacar de casa
+            </button>
+        </span>
+        <span *ngIf="chip.isInGoal">Ficha {{index + 1}}: Está a en la meta</span>
+      </div>
+    </div>
+    <div>
+      <img src="assets/parchis/parchisBoard.png" alt="Parchis Board">
+    </div>
+
+    <div
+      style="display: flex; flex-wrap: wrap ;justify-content: center;"
+    >
+      <div
+        *ngFor="let tile of board.tiles"
+        style="border: 1px solid white; width: 100px;"
+        [ngClass]="{'safe':tile.safe}"
+      >
+        {{tile.tileNumber}} <br>
+        safe: {{tile.safe}} <br>
+        {{tile.occupation}}
+      </div>
+    </div>
+
+  </div>
+</div>
