@@ -23,4 +23,12 @@ export class Dice {
   public getFace() : number{
     return this.face;
   }
+
+  /**
+   * Setter of face
+   * @param cara que se va a settear al dado
+   */
+  public setFace(cara) : void {
+    this.face = cara;
+  }
 }

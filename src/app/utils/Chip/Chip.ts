@@ -66,10 +66,26 @@ export class Chip{
   }
 
   /**
+   * Método que indica si la ficha está en casa
+   * @return isInHome
+   */
+  public getIsInHome() : boolean {
+    return this.isInHome;
+  }
+
+  /**
    * Método que settea la ficha en la meta
    */
   public setGoal() : void {
     this.isInGoal = true;
+  }
+
+  /**
+   * Método que indica si la ficha está en la meta
+   * @return isInGoal
+   */
+  public getIsInGoal() : boolean {
+    return this.isInGoal;
   }
 
 }

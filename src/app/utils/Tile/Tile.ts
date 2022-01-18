@@ -7,11 +7,11 @@ export class Tile {
   private occupation : number;
   private safe : boolean;
 
-  constructor() {
+  constructor( isSafe : boolean) {
     Tile.number ++;
     this.tileNumber = this.getStaticNumber();
     this.occupation = 0;
-    this.safe = false;
+    this.safe = isSafe;
     this.setSafe();
   }
 

@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ParchisComponent } from './parchis/parchis.component';
+import { OcaComponent } from './oca/oca.component';
 
 
 
@@ -18,7 +19,8 @@ import { ParchisComponent } from './parchis/parchis.component';
     HangmanComponent,
     TictactoeComponent,
     NavbarComponent,
-    ParchisComponent
+    ParchisComponent,
+    OcaComponent
   ],
   imports: [
     CommonModule,

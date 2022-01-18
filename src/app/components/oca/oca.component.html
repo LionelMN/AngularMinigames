@@ -1,0 +1,59 @@
+<div class="content" style="color: white; margin: 100px;">
+    <!--CONTENIDO DE ANTES DE EMPEZAR A JUGAR-->
+    <form
+      *ngIf="!isGameStarted"
+      #numberOfPlayers="ngForm"
+      (ngSubmit)="startGame(numberOfPlayers.form.value)"
+    >
+      <label for="numPlayers">Número de jugadores</label>
+      <input
+        type="number"
+        name="numPlayers"
+        min= "1"  max="4"
+        ngModel
+        [value]="numberOfPlayers"
+      >
+      <div *ngFor="let i of [].constructor(numberOfPlayers.form.value['numPlayers']); let index = index">
+        <label for="player{{index+1}}">Escribe el nombre del jugador {{index + 1}}</label>
+        <input name="player{{index+1}}" ngModel value=player{{index+1}}Name>
+      </div>
+      <button type="submit">
+          Empezar juego
+      </button>
+    </form>
+    <!--FIN DE CONTENIDO DE ANTES DE EMPEZAR A JUGAR-->
+    <div *ngIf="isGameStarted">
+      <h3>Es el turno de {{activePlayer.name}}</h3>
+      <button (click)="simulateThrow()" *ngIf="dice.getFace() == 0">Tirar Dado</button>
+      {{dice.getFace()}}
+      <div>
+        <div>
+          <span
+            *ngIf="!activePlayer.chip.isInGoal"
+            (click)="avance(dice.getFace())"
+          >
+              La ficha: Está a {{63 - activePlayer.chip.position}} casillas
+          </span>
+          <span *ngIf="activePlayer.chip.isInGoal">Ficha {{index + 1}}: Está a en la meta</span>
+        </div>
+      </div>
+      <div>
+        <img style="width: 100%;" src="assets/oca/tablero_oca.jpg.opdownload" alt="Oca Board">
+      </div>
+
+      <div
+        style="display: flex; flex-wrap: wrap ;justify-content: center;"
+      >
+        <div
+          *ngFor="let tile of board.tiles"
+          style="border: 1px solid white; width: 100px;"
+          [ngClass]="{'safe':tile.safe}"
+        >
+          {{tile.tileNumber}} <br>
+          safe: {{tile.safe}} <br>
+          {{tile.occupation}}
+        </div>
+      </div>
+
+    </div>
+  </div>
