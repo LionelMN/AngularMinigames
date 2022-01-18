@@ -1,0 +1,77 @@
+<div class="content">
+  <div class="preGameForm" *ngIf="!isGameRunning">
+    <div class="timeButtons">
+      <div><h1>Elije el tiempo</h1></div>
+      <div>Por defecto el tiempo es de 2 minutos</div>
+      <div class="timeButtons">
+        <button (click)="setTime(60)">1 minuto</button>
+        <button (click)="setTime(120)">2 minutos</button>
+        <button (click)="setTime(180)">3 minutos</button>
+      </div>
+      <div *ngIf="timer > 0">El tiempo seleccionado es: {{timer}} segundos</div>
+    </div>
+    <form
+      #playersName="ngForm"
+      (ngSubmit)="addPlayer(playersName.form.value.playerName)"
+    >
+      <label for="playerName">Introduce el nombre del nuevo jugador</label>
+      <input
+        type="text"
+        name="playerName"
+        placeholder="Nombre del nuevo jugador"
+        ngModel
+      >
+      <div class="buttonsContainer">
+        <button type="submit">
+          Añadir jugador
+        </button>
+        <button disabled *ngIf="!isGameReady">Empezar juego</button>
+        <button (click)="startGame()" *ngIf="isGameReady">Empezar juego</button>
+      </div>
+    </form>
+    <div class="listOfCurrentPlayers">
+      <span *ngFor="let player of players; let i = index">Jugador {{i + 1}}: {{player}} <button (click)="deletePlayer(player)">Borrar jugador</button></span>
+    </div>
+  </div>
+  <div class="inGame" *ngIf="isGameRunning">
+    <div class="gameInformation">
+      <h1>Jugador actual: {{currentPlayer}}</h1>
+      <h1>Segundos restantes: {{timer}}</h1>
+      <h3>Turno actual: {{turn}}</h3>
+      <img
+        [ngStyle]="{
+          'animation' : breathingAnimation
+        }"
+        *ngIf="timer != 0"
+        src="assets/patataCaliente/patataCaliente.png" alt=""
+      >
+      <img
+        class="timeOut"
+        *ngIf="timer == 0"
+        src="assets/patataCaliente/patataCaliente.png" alt=""
+      >
+
+    </div>
+    <div class="opperation">
+      <h2>{{numberA}} + {{numberB}}</h2>
+    </div>
+    <div class="gameForm">
+      <form
+        #number="ngForm"
+        (ngSubmit)="submitOperation(number.form.value.result)"
+      >
+        <input
+         type="number"
+          name="result"
+          ngModel
+        >
+        <button *ngIf="!isGameOver">Mandar solución</button>
+        <button disabled *ngIf="isGameOver">Mandar solución</button>
+      </form>
+    </div>
+  </div>
+  <div class="postGame" *ngIf="isGameOver">
+    <button (click)="resetGame()">Reset game</button>
+    <h1>Has perdido {{currentPlayer}}</h1>
+  </div>
+</div>

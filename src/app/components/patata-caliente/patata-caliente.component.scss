@@ -1,0 +1,137 @@
+.content{
+  width: 70%;
+  margin: 30px auto 0;
+  color: white;
+  button{
+    padding: 0.5rem;
+    border: 1px solid var(--forthColor);
+    border-radius: 25px;
+    outline: none;
+    background: var(--fithColor);
+    color: white;
+    cursor: pointer;
+
+
+
+    &:active{
+      background: var(--forthColor);
+      border: 1px solid var(--fithColor);
+    }
+
+    &:disabled{
+      opacity: 0.7;
+      cursor: default;
+    }
+  }
+
+  .preGameForm{
+
+    .timeButtons{
+      text-align: center;
+
+      div.timeButtons{
+        margin: 10px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 33.3%);
+        justify-content: center;
+        justify-items: center;
+      }
+    }
+
+    form{
+
+      label{
+        display: block;
+      }
+      input{
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        outline: none;
+        border-radius: 25px;
+      }
+    }
+
+    .buttonsContainer{
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .listOfCurrentPlayers{
+      span{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 30%;
+        padding: 0.5rem;
+        border: 1px solid var(--fithColor);
+        border-radius: 25px;
+        outline: none;
+        background: var(--terciaryColor);
+        margin: 0.5rem 0;
+      }
+    }
+
+  }
+
+  .inGame{
+    text-align: center;
+    .gameInformation{
+
+      img{
+
+        &.timeOut{
+          filter: grayscale(100%);
+        }
+      }
+    }
+
+    .gameForm{
+      form{
+        display: grid;
+        justify-content: center;
+        gap: 0.5rem;
+
+        input{
+          padding: 0.5rem;
+          margin: 0.5rem 0;
+          outline: none;
+          border-radius: 25px;
+        }
+      }
+    }
+  }
+
+  .postGame{
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  @keyframes breathing {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes burning {
+    0% {
+      filter: hue-rotate(0) saturate(1);
+    }
+    99%{
+      filter: hue-rotate(-45deg) saturate(2);
+    }
+    100%{
+      filter: hue-rotate(0) saturate(0);
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    img{
+      width: 100%;
+    }
+  }
+
+}
